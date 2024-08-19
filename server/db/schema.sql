@@ -28,5 +28,9 @@ CREATE TABLE Events (
     date DATE NOT NULL,
     time TIME NOT NULL,
     location VARCHAR(255) NOT NULL,
-    attendees TEXT DEFAULT '[]'
+    attendees TEXT DEFAULT '[]',
+    capacity INT, 
+    organizer_name TEXT NOT NULL, 
+    organizer_phone VARCHAR(12) NOT NULL,
 );
+
