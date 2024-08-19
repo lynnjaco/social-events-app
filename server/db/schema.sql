@@ -14,3 +14,19 @@ CREATE TABLE Users (
     saved_events TEXT DEFAULT '[]',
     attending_events TEXT DEFAULT '[]'
 );
+
+DROP DATABASE IF EXISTS events_dev;
+CREATE DATABASE events_dev;
+
+\c events_dev;
+
+CREATE TABLE Events (
+    id VARCHAR(21) PRIMARY KEY DEFAULT (CONCAT('evt_', LEFT(UUID(), 21))),
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    image_url VARCHAR(255),
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    attendees TEXT DEFAULT '[]'
+);
