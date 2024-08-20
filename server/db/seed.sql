@@ -29,4 +29,62 @@ VALUES
 ('evt_24', 'Herald Square Holiday Lights', 'Holiday lights display at Herald Square.', 'https://images.pexels.com/photos/759948/pexels-photo-759948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-05', '17:00:00', 'Herald Square, New York, NY 10001', '[]', 500, 'Xander Adams', '555-456-0987'),
 ('evt_25', 'The Bronx Zoo Wildlife Day', 'Special event at the Bronx Zoo focusing on wildlife conservation.', 'https://images.pexels.com/photos/2442392/pexels-photo-2442392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-15', '10:00:00', 'Bronx Zoo, 2300 Southern Blvd, Bronx, NY 10460', '[]', 1000, 'Yara Patel', '555-567-0987'),
 
-Insert
+
+\c users_dev;
+-- Insert users into the Users table
+INSERT INTO Users (name, age, zip_code, image_url, email, password)
+VALUES
+('Liam Thompson', 29, '10001', 'https://randomuser.me/api/portraits/men/1.jpg', 'liam.thompson@example.com', 'password123'),
+('Emma Johnson', 34, '10002', 'https://randomuser.me/api/portraits/women/2.jpg', 'emma.johnson@example.com', 'password123'),
+('Noah Williams', 23, '10003', 'https://randomuser.me/api/portraits/men/3.jpg', 'noah.williams@example.com', 'password123'),
+('Olivia Brown', 41, '10004', 'https://randomuser.me/api/portraits/women/4.jpg', 'olivia.brown@example.com', 'password123'),
+('James Davis', 56, '10005', 'https://randomuser.me/api/portraits/men/5.jpg', 'james.davis@example.com', 'password123'),
+('Ava Martinez', 27, '10006', 'https://randomuser.me/api/portraits/women/6.jpg', 'ava.martinez@example.com', 'password123'),
+('Lucas Rodriguez', 45, '10007', 'https://randomuser.me/api/portraits/men/7.jpg', 'lucas.rodriguez@example.com', 'password123'),
+('Sophia Garcia', 32, '10008', 'https://randomuser.me/api/portraits/women/8.jpg', 'sophia.garcia@example.com', 'password123'),
+('Mason Hernandez', 53, '10009', 'https://randomuser.me/api/portraits/men/9.jpg', 'mason.hernandez@example.com', 'password123'),
+('Isabella Wilson', 19, '10010', 'https://randomuser.me/api/portraits/women/10.jpg', 'isabella.wilson@example.com', 'password123'),
+
+('Ethan Martinez', 36, '10011', 'https://randomuser.me/api/portraits/men/11.jpg', 'ethan.martinez@example.com', 'password123'),
+('Mia Anderson', 25, '10012', 'https://randomuser.me/api/portraits/women/12.jpg', 'mia.anderson@example.com', 'password123'),
+('Logan Taylor', 30, '10013', 'https://randomuser.me/api/portraits/men/13.jpg', 'logan.taylor@example.com', 'password123'),
+('Charlotte Thomas', 46, '10014', 'https://randomuser.me/api/portraits/women/14.jpg', 'charlotte.thomas@example.com', 'password123'),
+('Alexander Jackson', 21, '10015', 'https://randomuser.me/api/portraits/men/15.jpg', 'alexander.jackson@example.com', 'password123'),
+('Amelia White', 38, '10016', 'https://randomuser.me/api/portraits/women/16.jpg', 'amelia.white@example.com', 'password123'),
+('Benjamin Harris', 60, '10017', 'https://randomuser.me/api/portraits/men/17.jpg', 'benjamin.harris@example.com', 'password123'),
+('Harper Martin', 33, '10018', 'https://randomuser.me/api/portraits/women/18.jpg', 'harper.martin@example.com', 'password123'),
+('Elijah Lee', 50, '10019', 'https://randomuser.me/api/portraits/men/19.jpg', 'elijah.lee@example.com', 'password123'),
+('Evelyn Perez', 22, '10020', 'https://randomuser.me/api/portraits/women/20.jpg', 'evelyn.perez@example.com', 'password123'),
+
+('Aiden Thompson', 28, '10021', 'https://randomuser.me/api/portraits/men/21.jpg', 'aiden.thompson@example.com', 'password123'),
+('Abigail Harris', 47, '10022', 'https://randomuser.me/api/portraits/women/22.jpg', 'abigail.harris@example.com', 'password123'),
+('Carter Clark', 37, '10023', 'https://randomuser.me/api/portraits/men/23.jpg', 'carter.clark@example.com', 'password123'),
+('Ella Lewis', 54, '10024', 'https://randomuser.me/api/portraits/women/24.jpg', 'ella.lewis@example.com', 'password123'),
+('Jackson Robinson', 20, '10025', 'https://randomuser.me/api/portraits/men/25.jpg', 'jackson.robinson@example.com', 'password123'),
+('Scarlett Walker', 43, '10026', 'https://randomuser.me/api/portraits/women/26.jpg', 'scarlett.walker@example.com', 'password123'),
+('Sebastian Young', 62, '10027', 'https://randomuser.me/api/portraits/men/27.jpg', 'sebastian.young@example.com', 'password123'),
+('Avery King', 26, '10028', 'https://randomuser.me/api/portraits/women/28.jpg', 'avery.king@example.com', 'password123'),
+('Daniel Allen', 31, '10029', 'https://randomuser.me/api/portraits/men/29.jpg', 'daniel.allen@example.com', 'password123'),
+('Aria Wright', 40, '10030', 'https://randomuser.me/api/portraits/women/30.jpg', 'aria.wright@example.com', 'password123'),
+
+('Henry Scott', 58, '10031', 'https://randomuser.me/api/portraits/men/31.jpg', 'henry.scott@example.com', 'password123'),
+('Grace Green', 23, '10032', 'https://randomuser.me/api/portraits/women/32.jpg', 'grace.green@example.com', 'password123'),
+('Matthew Adams', 34, '10033', 'https://randomuser.me/api/portraits/men/33.jpg', 'matthew.adams@example.com', 'password123'),
+('Chloe Baker', 39, '10034', 'https://randomuser.me/api/portraits/women/34.jpg', 'chloe.baker@example.com', 'password123'),
+('David Gonzalez', 48, '10035', 'https://randomuser.me/api/portraits/men/35.jpg', 'david.gonzalez@example.com', 'password123'),
+('Victoria Hill', 27, '10036', 'https://randomuser.me/api/portraits/women/36.jpg', 'victoria.hill@example.com', 'password123'),
+('Joseph Campbell', 35, '10037', 'https://randomuser.me/api/portraits/men/37.jpg', 'joseph.campbell@example.com', 'password123'),
+('Penelope Edwards', 24, '10038', 'https://randomuser.me/api/portraits/women/38.jpg', 'penelope.edwards@example.com', 'password123'),
+('Samuel Lopez', 44, '10039', 'https://randomuser.me/api/portraits/men/39.jpg', 'samuel.lopez@example.com', 'password123'),
+('Zoey Collins', 49, '10040', 'https://randomuser.me/api/portraits/women/40.jpg', 'zoey.collins@example.com', 'password123'),
+
+('Owen Sanchez', 52, '10041', 'https://randomuser.me/api/portraits/men/41.jpg', 'owen.sanchez@example.com', 'password123'),
+('Lily Morgan', 29, '10042', 'https://randomuser.me/api/portraits/women/42.jpg', 'lily.morgan@example.com', 'password123'),
+('Wyatt Flores', 60, '10043', 'https://randomuser.me/api/portraits/men/43.jpg', 'wyatt.flores@example.com', 'password123'),
+('Hannah Rivera', 21, '10044', 'https://randomuser.me/api/portraits/women/44.jpg', 'hannah.rivera@example.com', 'password123'),
+('Luke Barnes', 42, '10045', 'https://randomuser.me/api/portraits/men/45.jpg', 'luke.barnes@example.com', 'password123'),
+('Emily Kelly', 33, '10046', 'https://randomuser.me/api/portraits/women/46.jpg', 'emily.kelly@example.com', 'password123'),
+('Isaac Hughes', 55, '10047', 'https://randomuser.me/api/portraits/men/47.jpg', 'isaac.hughes@example.com', 'password123'),
+('Madison Price', 30, '10048', 'https://randomuser.me/api/portraits/women/48.jpg', 'madison.price@example.com', 'password123'),
+('Gabriel Jenkins', 19, '10049', 'https://randomuser.me/api/portraits/men/49.jpg', 'gabriel.jenkins@example.com', 'password123'),
+('Sofia Diaz', 63, '10050', 'https://randomuser.me/api/portraits/women/50.jpg', 'sofia.diaz@example.com', 'password123');
