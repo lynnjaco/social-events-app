@@ -1,7 +1,7 @@
 \c events_dev;
 
 -- Insert events into the Events table
-INSERT INTO Events (id, name, description, image_url, date, time, location, attendees, capacity, organizer_name, organizer_phone)
+INSERT INTO Events (name, description, image_url, date, time, location, attendees, capacity, organizer_name, organizer_phone)
 VALUES
 ('evt_1', 'Central Park Summer Concert', 'Enjoy live music in Central Park.', 'https://images.pexels.com/photos/16803238/pexels-photo-16803238/free-photo-of-a-band-playing-music-in-a-park-in-summer.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-08-20', '18:00:00', 'Central Park, 59th St to 110th St, New York, NY 10022', '[]', 5000, 'Alice Johnson', '555-123-4567'),
 ('evt_2', 'Brooklyn Bridge Yoga', 'Morning yoga session with a view of the Brooklyn Bridge.', 'https://images.pexels.com/photos/8939960/pexels-photo-8939960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-08-22', '07:00:00', 'Brooklyn Bridge Park, 334 Furman St, Brooklyn, NY 11201', '[]', 200, 'Bob Smith', '555-234-5678'),
