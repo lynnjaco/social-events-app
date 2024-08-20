@@ -29,3 +29,4 @@ VALUES
 ('evt_24', 'Herald Square Holiday Lights', 'Holiday lights display at Herald Square.', 'https://images.pexels.com/photos/759948/pexels-photo-759948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-05', '17:00:00', 'Herald Square, New York, NY 10001', '[]', 500, 'Xander Adams', '555-456-0987'),
 ('evt_25', 'The Bronx Zoo Wildlife Day', 'Special event at the Bronx Zoo focusing on wildlife conservation.', 'https://images.pexels.com/photos/2442392/pexels-photo-2442392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-15', '10:00:00', 'Bronx Zoo, 2300 Southern Blvd, Bronx, NY 10460', '[]', 1000, 'Yara Patel', '555-567-0987'),
 
+Insert

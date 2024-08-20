@@ -8,6 +8,7 @@ CREATE TABLE Users (
     name VARCHAR(255) NOT NULL,
     age INT NOT NULL,
     zip_code VARCHAR(10) NOT NULL,
+    image_url VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     friends TEXT DEFAULT '[]',
