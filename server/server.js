@@ -1,12 +1,11 @@
-const express = require('express');
-const app = express();
+// DEPENDENCIES
+const app = require("./app.js");
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
+// CONFIGURATION
+require("dotenv").config();
+const PORT = process.env.PORT;
 
-const port = process.env.PORT;
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// LISTEN
+app.listen(PORT, () => {
+  console.log(`Listening on localhost: ${PORT}`);
 });
