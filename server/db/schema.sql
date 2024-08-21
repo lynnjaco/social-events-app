@@ -10,10 +10,21 @@ CREATE TABLE Users (
     zip_code VARCHAR(10) NOT NULL,
     image_url VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    saved_events TEXT DEFAULT '[]',
-    attending_events TEXT DEFAULT '[]'
+    password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE Friendships (
+    id SERIAL PRIMARY KEY,
+    user_id1 VARCHAR(21) REFERENCES Users(id),
+    user_id2 VARCHAR(21) REFERENCES Users(id),
+    status VARCHAR(20) DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CHECK (user_id1 < user_id2)
+);
+
+CREATE INDEX ON Friendships(user_id1);
+CREATE INDEX ON Friendships(user_id2);
+
 
 DROP DATABASE IF EXISTS events_dev;
 CREATE DATABASE events_dev;
@@ -37,7 +48,7 @@ CREATE TABLE EventAttendees (
     id SERIAL PRIMARY KEY,
     event_id VARCHAR(21) REFERENCES Events(id),
     user_id VARCHAR(21),
-    status VARCHAR(20) DEFAULT 'attending',
+    status VARCHAR(20) DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
