@@ -11,7 +11,6 @@ CREATE TABLE Users (
     image_url VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    friends TEXT DEFAULT '[]',
     saved_events TEXT DEFAULT '[]',
     attending_events TEXT DEFAULT '[]'
 );
@@ -29,9 +28,19 @@ CREATE TABLE Events (
     date DATE NOT NULL,
     time TIME NOT NULL,
     location VARCHAR(255) NOT NULL,
-    attendees TEXT DEFAULT '[]',
     capacity INT, 
     organizer_name TEXT NOT NULL, 
-    organizer_phone VARCHAR(12) NOT NULL,
+    organizer_phone VARCHAR(12) NOT NULL
 );
+
+CREATE TABLE EventAttendees (
+    id SERIAL PRIMARY KEY,
+    event_id VARCHAR(21) REFERENCES Events(id),
+    user_id VARCHAR(21),
+    status VARCHAR(20) DEFAULT 'attending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX ON EventAttendees(event_id);
+CREATE INDEX ON EventAttendees(user_id);
 
