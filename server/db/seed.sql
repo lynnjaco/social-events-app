@@ -1,4 +1,4 @@
-\c events_dev;
+\c app_dev;
 
 -- Insert events into the Events table
 INSERT INTO Events (name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone)
@@ -27,10 +27,8 @@ VALUES
 ('East River Park Family Day', 'Family-friendly activities and games at East River Park.', 'https://images.pexels.com/photos/1128316/pexels-photo-1128316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-11-10', '10:00:00', 'East River Park, New York, NY 10009', 300, 'Victor Wilson', '555-234-0987'),
 ('Chelsea Market Tasting Tour', 'Taste your way through Chelsea Market.', 'https://images.pexels.com/photos/2260826/pexels-photo-2260826.jpeg', '2024-12-01', '12:00:00', 'Chelsea Market, 75 9th Ave, New York, NY 10011', 100, 'Wendy Baker', '555-345-0987'),
 ('Herald Square Holiday Lights', 'Holiday lights display at Herald Square.', 'https://images.pexels.com/photos/759948/pexels-photo-759948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-05', '17:00:00', 'Herald Square, New York, NY 10001', 500, 'Xander Adams', '555-456-0987'),
-('The Bronx Zoo Wildlife Day', 'Special event at the Bronx Zoo focusing on wildlife conservation.', 'https://images.pexels.com/photos/2442392/pexels-photo-2442392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-15', '10:00:00', 'Bronx Zoo, 2300 Southern Blvd, Bronx, NY 10460', 1000, 'Yara Patel', '555-567-0987')
+('The Bronx Zoo Wildlife Day', 'Special event at the Bronx Zoo focusing on wildlife conservation.', 'https://images.pexels.com/photos/2442392/pexels-photo-2442392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '2024-12-15', '10:00:00', 'Bronx Zoo, 2300 Southern Blvd, Bronx, NY 10460', 1000, 'Yara Patel', '555-567-0987');
 
-
-\c users_dev;
 -- Insert users into the Users table
 INSERT INTO Users (name, age, zip_code, image_url, email, password)
 VALUES
@@ -87,4 +85,4 @@ VALUES
 ('Isaac Hughes', 55, '10047', 'https://randomuser.me/api/portraits/men/47.jpg', 'isaac.hughes@example.com', 'password123'),
 ('Madison Price', 30, '10048', 'https://randomuser.me/api/portraits/women/48.jpg', 'madison.price@example.com', 'password123'),
 ('Gabriel Jenkins', 19, '10049', 'https://randomuser.me/api/portraits/men/49.jpg', 'gabriel.jenkins@example.com', 'password123'),
-('Sofia Diaz', 63, '10050', 'https://randomuser.me/api/portraits/women/50.jpg', 'sofia.diaz@example.com', 'password123')
+('Sofia Diaz', 63, '10050', 'https://randomuser.me/api/portraits/women/50.jpg', 'sofia.diaz@example.com', 'password123');
