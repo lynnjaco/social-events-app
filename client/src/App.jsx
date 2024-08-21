@@ -1,16 +1,22 @@
 import { useState } from 'react'
-import UserSignUpForm  from '../Components/UserSignUpForm/UserSignUpForm'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Pages
+import Home from '../Pages/Home/Home';
+// Components
+import UserSignUpForm from '../Components/UserSignUpForm/UserSignUpForm';
 import './App.css'
 import 'flowbite'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-   <UserSignUpForm/>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<UserSignUpForm />} />
+      </Routes>
+    </Router>
+  );
 }
+
 
 export default App
