@@ -5,7 +5,18 @@ const getAllEvents = async () => {
 return events;
 };
 
+const showOneEvent = async (id) => {
+  const event = await db.one("SELECT * FROM events WHERE id = $1", id);
+  return event;
+};
+
+// const createEvent = async (name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone) => {
+//     const newEvent = await db.one("INSERT INTO events (name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *", [name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone]
+//     );
+//      return newEvent;
+// };
+
 
 module.exports = {
-  getAllEvents,
+  getAllEvents, showOneEvent
 };
