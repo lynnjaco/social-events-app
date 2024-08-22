@@ -2,7 +2,7 @@ const express = require("express")
 const events = express.Router();
 const {getAllEvents, showOneEvent} = require("../queries/events")
 
-const { checkName, checkBoolean, validateURL, checkDescription } = require("../validations/checkEvents");
+
 
 
 events.get("/", async (req, res) => {
