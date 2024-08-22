@@ -25,6 +25,8 @@ const showEventAttendees = async (eventId) => {
          ea.event_id = $1`, eventId); // Use eventId as the parameter
     return eventAttendees;
 }
+
+
 // const createEvent = async (name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone) => {
 //     const newEvent = await db.one("INSERT INTO events (name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *", [name, description, image_url, date, time, location, capacity, organizer_name, organizer_phone]
 //     );

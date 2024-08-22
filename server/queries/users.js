@@ -10,6 +10,23 @@ const getAllUsers = async () => {
     return user;
   };
 
+const showUserEvents = async (userId) => {
+    const userEvents = await db.any(
+        `SELECT 
+           ea.event_id,
+           e.name AS event_name,
+           ea.status,
+           ea.created_at AS registration_date
+         FROM 
+           EventAttendees ea
+         JOIN 
+           Events e ON ea.event_id = e.id
+         WHERE 
+           ea.user_id = $1`, [userId]
+      );
+         return userEvents;
+}
+
 
 const showUserFriends = async(userId) => {
     const userFriends = await db.any(`SELECT 
@@ -36,5 +53,5 @@ const showUserFriends = async(userId) => {
          return userFriends;
 }
   module.exports = {
-    getAllUsers, showOneUser, showUserFriends
+    getAllUsers, showOneUser, showUserFriends, showUserEvents
   };
