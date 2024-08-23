@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS app_dev;
-CREATE DATABASE app_dev;
+DROP DATABASE IF EXISTS locally_dev;
+CREATE DATABASE locally_dev;
 
-\c app_dev;
+\c locally_dev;
 
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,

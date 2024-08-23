@@ -1,4 +1,4 @@
-\c app_dev;
+\c locally_dev;
 
 -- Insert users into the Users table
 INSERT INTO Users (name, age, zip_code, image_url, email, password)
