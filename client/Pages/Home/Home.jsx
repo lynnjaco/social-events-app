@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import blLocallyLogo from '../../src/assets/bllocally.png';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import Event from '../../Components/Event/Event';
 
@@ -43,7 +44,11 @@ export default function Home() {
 
   return (
     <div className="Home">
-      <h1 className="text-2xl font-bold mb-4">Locally</h1>
+      <img
+        src={blLocallyLogo}
+        alt="blLocally Logo"
+        className="w-100 h-20 mx-auto my-auto block"
+      />
       <div className="m-2.5">
         <SearchBar searchQuery={searchQuery} handleChange={handleChange} />
       </div>
