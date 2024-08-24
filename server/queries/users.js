@@ -1,8 +1,8 @@
 const db = require("../db/dbConfig");
 
 const getAllUsers = async () => {
-    const users = await db.any("SELECT * FROM users");
-    return users;
+  const users = await db.any("SELECT * FROM users");
+  return users;
 };
 
 const showOneUser = async (id) => {
@@ -15,8 +15,10 @@ const showUserEvents = async (userId) => {
         `SELECT 
            ea.event_id,
            e.name AS event_name,
+           e.image_url,
            ea.status,
-           ea.created_at AS registration_date
+           e.date,
+           e.location
          FROM 
            EventAttendees ea
          JOIN 

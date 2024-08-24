@@ -1,6 +1,7 @@
 const express = require("express");
-const { getAllUsers, showOneUser, showUserEvents, showUserFriends } = require("../queries/users");
 const users = express.Router();
+
+const { getAllUsers, showOneUser, showUserEvents, showUserFriends } = require("../queries/users");
 
 users.get("/", async (req, res) => {
     try {

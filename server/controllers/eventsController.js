@@ -1,6 +1,7 @@
 const express = require("express")
 const events = express.Router();
-const {getAllEvents, showOneEvent} = require("../queries/events")
+
+const {getAllEvents, showOneEvent, showEventAttendees} = require("../queries/events")
 
 events.get("/", async (req, res) => {
     try {
@@ -25,6 +26,21 @@ events.get("/:id", async(req, res) => {
         res.status(404).json({error: "Event not found"})
     }
 })
+
+events.get("/:id/attendees", async(req, res) => {
+    const {id} = req.params;
+    try {
+        const eventAttendees = await showEventAttendees(id);
+        if (eventAttendees[0]) {
+            res.status(200).json(eventAttendees)
+        } else {
+            res.status(404).json({error: "Event not found"})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({error: "Internal server error"})
+    }
+});
 
 // events.post("/", async (req, res) => {
 //     try {

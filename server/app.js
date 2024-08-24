@@ -1,4 +1,4 @@
-//dependencies 
+//Dependencies 
 const cors = require("cors");
 const express = require("express");
 
@@ -19,7 +19,7 @@ app.use("/friendship", friendsController);
 
 // Routes
 app.get("/", (req, res) => {
-  res.send(" Welcome to Locally");
+  res.send("Welcome to Locally");
 });
 
 // 404 Page

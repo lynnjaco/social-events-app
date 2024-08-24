@@ -1,5 +1,6 @@
 const express = require("express");
 const friendship = express.Router(); 
+
 const { deleteFriendship } = require("../queries/friends")
 
 friendship.delete("/:userId/:friendId", async (req, res) => {
