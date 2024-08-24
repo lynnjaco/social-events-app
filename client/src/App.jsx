@@ -6,6 +6,7 @@ import Home from '../Pages/Home/Home';
 import UserSignUpForm from '../Components/UserSignUpForm/UserSignUpForm';
 import './App.css'
 import 'flowbite'
+import UserProfile from '../Pages/UserProfile/UserProfile';
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<UserSignUpForm />} />
+        <Route path="user/:id" element={ <UserProfile /> } />
       </Routes>
     </Router>
   );
-}
+} 
 
 export default App
