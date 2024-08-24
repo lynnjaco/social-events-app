@@ -1,5 +1,5 @@
-import blLocallyLogo from '../../src/assets/bllocally.png';
-
+import blLocallyLogo from "../../src/assets/bllocally.png";
+import "./UserSignUpForm.scss";
 export default function UserSignUpForm() {
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -80,7 +80,7 @@ export default function UserSignUpForm() {
                     htmlFor="terms"
                     className="font-light text-gray-500 dark:text-gray-300"
                   >
-                    I accept the{' '}
+                    I accept the{" "}
                     <a
                       href="#"
                       className="font-medium text-primary-600 hover:underline dark:text-primary-500"
@@ -97,7 +97,7 @@ export default function UserSignUpForm() {
                 Create an account
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <a
                   href="#"
                   className="font-medium text-primary-600 hover:underline dark:text-primary-500"
