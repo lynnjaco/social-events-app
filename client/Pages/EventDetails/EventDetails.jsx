@@ -34,7 +34,7 @@ function EventDetails() {
     .then((response) => response.json())
     .then((data) => setEventAttendees(data))
     .catch((error) => console.error("Error:", error));
-  })
+  }, [id])
 
   return (
     <section className="bg-white dark:bg-gray-900">
