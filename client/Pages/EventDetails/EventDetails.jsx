@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function EventDetails() {
   const { id } = useParams();
@@ -64,11 +64,11 @@ function EventDetails() {
           <div className="carousel rounded-box">
   
         {eventAttendees.map((attendee) => (
-          <div key={attendee.id} className="carousel-item">
+          <div key={attendee.user_id} className="carousel-item">
             <p>{ attendee.user_name }</p>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-              alt="Burger" />
+            <Link to={`/users/${attendee.user_id}`}><img
+              src={ attendee.user_image_url }
+              alt={ `${attendee.user_name}'s Photo` } /></Link>
           </div>
         ))}
         </div>
