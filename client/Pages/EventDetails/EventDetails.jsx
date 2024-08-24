@@ -5,6 +5,7 @@ function EventDetails() {
   const { id } = useParams();
   const apiUrl = import.meta.env.VITE_API_URL;
   const [event, setEvent] = useState([]);
+  const [eventAttendees, setEventAttendees] = useState([]);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -28,6 +29,13 @@ function EventDetails() {
     fetchEvents();
   }, [id]);
 
+  useEffect(() => {
+    fetch(`${apiUrl}/events/${id}/attendees`)
+    .then((response) => response.json())
+    .then((data) => setEventAttendees(data))
+    .catch((error) => console.error("Error:", error));
+  })
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
@@ -38,8 +46,8 @@ function EventDetails() {
           <p className="mb-4">{event.description}</p>
           <p>{formatDate(event.date)}</p>
           <p>{event.location}</p>
-          <p>Hosted by: {event.organizer_name}</p>
-          <p>Contact info : {event.organizer_phone}</p>
+          <p>Event Host: {event.organizer_name}</p>
+          <p>Host Contact : {event.organizer_phone}</p>
         </div>
         <div className="grid grid-cols-1 gap-4 mt-8">
           <img
@@ -47,6 +55,22 @@ function EventDetails() {
             src={event.image_url}
             alt="Event-picture"
           />
+        </div>
+      </div>
+
+      <div>
+        <h2>Attendees</h2>
+
+          <div className="carousel rounded-box">
+  
+        {eventAttendees.map((attendee) => (
+          <div key={attendee.id} className="carousel-item">
+            <p>{ attendee.user_name }</p>
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
+              alt="Burger" />
+          </div>
+        ))}
         </div>
       </div>
     </section>
