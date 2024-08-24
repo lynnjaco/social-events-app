@@ -5,5 +5,18 @@ const deleteFriendship = async(userId, friendId) => {
     return deletedFriendship;
 }
 
-module.exports = {deleteFriendship};
+const createFriendship = async (userId1, userId2) => {
+    // Ensure user_id1 is less than user_id2 to satisfy the CHECK constraint
+    if (userId1 > userId2) {
+        [userId1, userId2] = [userId2, userId1];
+    }
+
+    const newFriendship = await db.none(
+        `INSERT INTO Friendships (user_id1, user_id2) VALUES ($1, $2)`,
+        [userId1, userId2]
+    );
+    return newFriendship;
+}
+
+module.exports = {deleteFriendship, createFriendship};
 
