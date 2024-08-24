@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';    
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-export default function UserProfile() {
+function UserProfile() {
 
     const { id } = useParams();
+    const [currentUser, setCurrentUser] = useState(null);
     const [usersFriends, setUsersFriends] = useState([]);
     const [usersEvents, setUsersEvents] = useState([]);
     const API = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
+        fetch(`${API}/users/${id}`)
+       .then(res => res.json())
+       .then(data => setCurrentUser(data))  
+    }, [id])
+
+    useEffect(() => {
         fetch(`${API}/users/${id}/friends`)
        .then(res => res.json())
        .then(data => setUsersFriends(data))
-    }, [])  
+    }, [id]);  
 
     return (
         <>
@@ -20,8 +27,8 @@ export default function UserProfile() {
             <h2>User's Events</h2>
 
            </div>
-            <div>
-                <h2>User's Friends</h2>
+            <h2>User's Friends</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {usersFriends.map(user => (
                     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <div class="flex justify-end px-4 pt-4">
@@ -46,12 +53,12 @@ export default function UserProfile() {
                             </div>
                         </div>
                         <div class="flex flex-col items-center pb-10">
-                            <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src={ user.image_url } alt="Bonnie image"/>
-                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{ user.name }</h5>
-                            <span class="text-sm text-gray-500 dark:text-gray-400">{ user.age }, { user.zip_code }</span>
+                            <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src={ user.friend_image_url } alt="Bonnie image"/>
+                            <h5 class="mb-2 text-xl font-medium text-gray-900 dark:text-white">{ user.friend_name }</h5>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{ user.friend_age}, { user.friend_zip_code }</span>
                             <div class="flex mt-4 md:mt-6">
-                                <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Friend</a>
-                                <a href="#" class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Message</a>
+                                <Link to={`/users/${user.friend_id}`} class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Profile</Link>
+                                <a href="#" class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Remove Friend</a>
                             </div>
                         </div>
                     </div>
@@ -61,4 +68,4 @@ export default function UserProfile() {
     )
 }
 
-module.exports = UserProfile;
+export default UserProfile;
