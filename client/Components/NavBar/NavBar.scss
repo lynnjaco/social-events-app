@@ -1,0 +1,19 @@
+.NavBar {
+    display: flex;
+    align-items: center;
+
+    img {
+        display: block;
+        width: 150px;
+        height: auto;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+    }
+
+    li {
+        margin-right: 15px;
+    }
+}
