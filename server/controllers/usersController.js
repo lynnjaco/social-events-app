@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllUsers, showOneUser, showUserEvents} = require("../queries/users");
+const { getAllUsers, showOneUser, showUserEvents, showUserFriends } = require("../queries/users");
 const users = express.Router();
 
 users.get("/", async (req, res) => {
@@ -41,5 +41,19 @@ users.get("/:id/events", async(req, res) => {
     }
 });
 
+users.get("/:id/friends", async(req, res) => {
+    const {id} = req.params;
+    try {
+        const userFriends = await showUserFriends(id);
+        if (userFriends[0]) {
+            res.status(200).json(userFriends)
+        } else {
+            res.status(404).json({error: "Event not found"})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({error: "Internal server error"})
+    }
+});
 
 module.exports = users;

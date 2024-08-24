@@ -28,22 +28,39 @@ const showUserEvents = async (userId) => {
 }
 
 const showUserFriends = async(userId) => {
-    const userFriends = await db.any(`SELECT 
-         u1.id AS user_id1,
-         u1.name AS user_name1,
-         u2.id AS user_id2,
-         u2.name AS user_name2,
-         f.status AS friendship_status,
-         f.created_at AS friendship_created_at
-       FROM 
-         Friendships f
-       JOIN 
-         Users u1 ON f.user_id1 = u1.id
-       JOIN 
-         Users u2 ON f.user_id2 = u2.id
-       WHERE 
-         f.user_id1 = $1 OR f.user_id2 = $1`, userId)
-         return userFriends;
+    const userFriends = await db.any(`
+        SELECT 
+            CASE 
+                WHEN f.user_id1 = $1 THEN u2.id
+                ELSE u1.id
+            END AS friend_id,
+            CASE 
+                WHEN f.user_id1 = $1 THEN u2.name
+                ELSE u1.name
+            END AS friend_name,
+            CASE 
+                WHEN f.user_id1 = $1 THEN u2.age
+                ELSE u1.age
+            END AS friend_age,
+            CASE 
+                WHEN f.user_id1 = $1 THEN u2.zip_code
+                ELSE u1.zip_code
+            END AS friend_zip_code,
+            CASE 
+                WHEN f.user_id1 = $1 THEN u2.image_url
+                ELSE u1.image_url
+            END AS friend_image_url,
+            f.status AS friendship_status,
+            f.created_at AS friendship_created_at
+        FROM 
+            Friendships f
+        JOIN 
+            Users u1 ON f.user_id1 = u1.id
+        JOIN 
+            Users u2 ON f.user_id2 = u2.id
+        WHERE 
+            f.user_id1 = $1 OR f.user_id2 = $1`, userId);
+    return userFriends;
 }
 
 module.exports = {

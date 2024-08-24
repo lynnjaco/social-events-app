@@ -1,21 +1,6 @@
 const express = require("express");
 const friendship = express.Router(); 
-const {showUserFriendships, deleteFriendship} = require("../queries/friends")
-
-friendship.get("/:userId/", async (req, res) => {
-    const {userId} = req.params;
-    const userFriendships = await showUserFriendships(userId);
-    try {
-        if (userFriendships[0]) {
-            res.status(200).json(userFriendships)
-        } else {
-            res.status(404).json({error: "User Friendship not found"})
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({error: "Internal server error"})
-    }
-})
+const { deleteFriendship } = require("../queries/friends")
 
 friendship.delete("/:userId/:friendId", async (req, res) => {
     const {userId, friendId} = req.params;
