@@ -5,6 +5,8 @@ import Event from '../../Components/Event/Event';
 export default function Home() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const [events, setEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -15,22 +17,38 @@ export default function Home() {
         }
         const data = await response.json();
         setEvents(data);
+        setFilteredEvents(data);
       } catch (error) {
         console.error('Error fetching events:', error);
       }
     };
 
     fetchEvents();
-  }, [apiUrl]); // Added apiUrl as a dependency
+  }, [apiUrl]);
+
+  useEffect(() => {
+    const filtered = filterEvents(events, searchQuery);
+    setFilteredEvents(filtered);
+  }, [searchQuery, events]);
+
+  function handleChange(event) {
+    setSearchQuery(event.target.value);
+  }
+
+  function filterEvents(events, searchQuery) {
+    return events.filter((event) =>
+      event.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   return (
     <div className="Home">
       <h1 className="text-2xl font-bold mb-4">Locally</h1>
       <div className="m-2.5">
-        <SearchBar />
+        <SearchBar searchQuery={searchQuery} handleChange={handleChange} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <Event key={event.id} event={event} />
         ))}
       </div>
