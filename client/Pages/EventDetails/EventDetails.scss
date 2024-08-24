@@ -1,0 +1,20 @@
+.EventDetails {
+    display: flex;
+    align-items: center;
+
+    .container {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin: 10px;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    .attendees {
+        text-align: left;
+
+    }
+}
