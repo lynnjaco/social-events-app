@@ -5,6 +5,7 @@ export default function UserProfile() {
 
     const { id } = useParams();
     const [usersFriends, setUsersFriends] = useState([]);
+    const [usersEvents, setUsersEvents] = useState([]);
     const API = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
@@ -15,8 +16,12 @@ export default function UserProfile() {
 
     return (
         <>
+           <div>
+            <h2>User's Events</h2>
+
+           </div>
             <div>
-                <h2>Friends</h2>
+                <h2>User's Friends</h2>
                 {usersFriends.map(user => (
                     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <div class="flex justify-end px-4 pt-4">
