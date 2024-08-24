@@ -33,8 +33,8 @@ function EventDetails() {
     fetch(`${apiUrl}/events/${id}/attendees`)
     .then((response) => response.json())
     .then((data) => setEventAttendees(data))
-    .catch((error) => console.error("Error:", error));
-  })
+    // .catch((error) => console.error("Error:", error));
+  }, [id]);
 
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -67,7 +67,7 @@ function EventDetails() {
           <div key={attendee.user_id} className="carousel-item">
             <p>{ attendee.user_name }</p>
             <Link to={`/users/${attendee.user_id}`}><img
-              src={ attendee.user_image_url }
+              src={ attendee?.user_image_url }
               alt={ `${attendee.user_name}'s Photo` } /></Link>
           </div>
         ))}
