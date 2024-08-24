@@ -2,9 +2,6 @@ const express = require("express")
 const events = express.Router();
 const {getAllEvents, showOneEvent} = require("../queries/events")
 
-
-
-
 events.get("/", async (req, res) => {
     try {
         const listOfEvents = await getAllEvents()
