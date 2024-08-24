@@ -39,6 +39,21 @@ function UserProfile() {
     return (
         <div className="UserProfile">
 
+            <div className="hero bg-base-200 min-h-screen">
+                <div className="hero-content text-center">
+                    <div className="max-w-md">
+                    <h1 className="text-5xl font-bold">{getFirstName(currentUser?.name)}'s Profile</h1>
+                    <div className="mask mask-squircle w-24">
+                        <img src={ currentUser?.image_url } alt={ `'${currentUser?.name}'s Photo'` } />
+                    </div>
+                    <p className="py-6">
+                        {currentUser?.age} Years Old  |  Located In {currentUser?.zip_code}
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
 
             <h2>{ getFirstName(currentUser?.name) }'s Events</h2>
             <div className="carousel w-full">
