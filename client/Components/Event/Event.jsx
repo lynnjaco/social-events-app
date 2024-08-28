@@ -1,21 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Event({ event }) {
   // Function to format the date
   const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col h-[100px]">
+      {' '}
+      {/* Set height to 100px */}
       <img
         className="rounded-t-lg w-full h-48 object-cover"
         src={event.image_url}
         alt={event.title}
       />
-      <div className="p-5 flex flex-col flex-grow">
-        <div className="flex flex-col flex-grow">
+      <div className="p-5 flex flex-col flex-grow justify-between h-full">
+        {' '}
+        {/* Added h-full to ensure full height usage */}
+        <div>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {event.name}
           </h5>
@@ -26,7 +30,7 @@ export default function Event({ event }) {
             {event.description}
           </p>
         </div>
-        <div className="mt-auto">
+        <div>
           <Link
             to={`/events/${event.id}`}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
