@@ -1,8 +1,9 @@
 .NavBar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    img {
+    .logo img {
         display: block;
         width: 150px;
         height: auto;
@@ -11,9 +12,26 @@
     ul {
         list-style: none;
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     li {
-        margin-right: 15px;
+        margin-left: 1rem;
+    }
+
+    #userDropdown {
+        ul {
+
+            display: block;
+        }
+
+        li {
+            margin-left: 0rem;
+        }
+    }
+
+    span {
+        color: #8d99ae;
     }
 }
