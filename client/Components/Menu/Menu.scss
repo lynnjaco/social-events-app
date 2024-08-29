@@ -1,0 +1,15 @@
+.Menu {
+    width: 70%;
+    margin: 1rem auto;
+    border-bottom: 1px solid #8d99ae;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0rem 2rem 0.5rem 2rem;
+    }
+
+    li:hover {
+        font-weight: 700;
+    }
+}

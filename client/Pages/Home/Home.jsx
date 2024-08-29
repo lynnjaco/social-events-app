@@ -44,11 +44,11 @@ export default function Home() {
 
   return (
     <div className="Home">
-      <img
+      {/* <img
         src={blLocallyLogo}
         alt="blLocally Logo"
         className="w-100 h-20 mx-auto my-auto block"
-      />
+      /> */}
       <div className="m-2.5">
         <SearchBar searchQuery={searchQuery} handleChange={handleChange} />
       </div>
